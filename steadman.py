@@ -261,35 +261,7 @@ class PharrBuilder():
             
             content = requests.get(url).content
             self.soup = BeautifulSoup(content, 'html.parser')
-            self.paras = self.soup.body.get_text().replace('\n\n', '\n')
-
-
-            
-    def format_latin_library_text(soup, n: int=20): # not used 
-        """
-        Formats texts from the Latin Library. 
-        :param soup: BeautifulSoup object instantiated 
-        """
-        if self.soup is not None: 
-            for p in self.paras: 
-                lines = para.split('\n')
-                for line in range(0, len(lines), n):
-                    chunk = lines[line:line + n]
-            
-        
-    @classmethod
-    def clean_paragraph(self, ls): # not used 
-
-        out = f""
-        for i in range(len(ls) - 1):  
-            if ls[i + 1] in punc: 
-                out += ''.join([ls[i], ls[i + 1].strip('-')]) + ' '
-            elif ls[i] not in punc:
-                out += f'{ls[i]} '
-            else: 
-                pass
-        return out.rstrip(' ')
-         
+            self.paras = self.soup.body.get_text().replace('\n\n', '\n')        
 
     @classmethod
     def parse_paragraph(self, paragraph: 'str') -> 'str': # not used 
