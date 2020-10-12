@@ -1,0 +1,104 @@
+## clipboard.txt ## 
+
+     paras = flatten_paragraphs(self.paras)
+            for para in tqdm(paras):
+                lines = para.split('\n')
+                chunk_count = 0 # initialize JIC 
+                
+                # chunk paragraphs for page formatting
+                for chunk in range(0, len(lines), line_size):
+                    chunk_count +=1
+
+                    chunk_dict = {}
+                    text_chunk = '\n'.join(lines[chunk:chunk + line_size])
+                    
+                    # add text chunk to document
+                    main_paragraph = doc.add_paragraph().add_run(text_chunk)
+                    main_paragraph.font.size = Pt(12)
+                    
+                    # visual line break
+                    p2 = doc.add_paragraph()
+                    p2.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    p2.add_run(line_break)
+                    
+                    # change formatting for vocab section
+                    
+                    doc.add_section(0)
+                    
+                    section = doc.sections[-1]
+                    sectPr = section._sectPr
+                    cols = sectPr.xpath('./w:cols')[0]
+                    cols.set(qn('w:num'), '2')
+                    
+                    # identify and look up words in chunk
+                    words = [w.lower().strip('.,;-—\t') for w in text_chunk.split(' ')]
+                    for word in words:
+                        # parse the nominative form. works better than the OW parser 
+                        lemma = lemmatizer.lemmatize([word])[0][1] 
+                        if lemma in vocabulary_list:
+                            _ = lookup_word(lemma)
+                            try:
+                                chunk_dict[word]['dictionary_form'] = _[lemma]['dictionary_form']
+                                chunk_dict[word]['senses'] = _[lemma]['senses']
+                                chunk_dict[word]['lemma'] = _[lemma]['lemma']
+                            except:
+                                pass
+                    
+                    # clean dictionary 
+                    delete = [k for k in chunk_dict.keys() if chunk_dict[k].get('dictionary_form') is None]
+                    
+                    for k in delete:
+                        del chunk_dict[k]
+                        
+                    chunk_vocab = sorted(list(chunk_dict.keys()))
+                    
+                    for vocab_word in chunk_vocab: 
+                        p = doc.add_paragraph()
+                        
+                        bold_text = f'{" ".join(chunk_dict[vocab_word]["dictionary_form"]).strip(".")}'
+                        plain_text = f'{", ".join(chunk_dict[vocab_word]["senses"])}'
+                        
+                        bold_run = p.add_run()
+                        bold_run.bold = True
+                        bold_run.text = f'{chunk_dict[word]["lemma"]} ' + bold_text
+                        bold_run.font.size = Pt(10)
+                        
+                        plain_run = p.add_run()
+                        plain_run.bold = False
+                        plain_run.text = plain_text 
+                        plain_run.font_size = Pt(10)
+                        
+                        doc.add_section(0)
+                        section = doc.sections[-1]
+
+                        sectPr = section._sectPr
+                        cols = sectPr.xpath('.w/:cols')[0]
+                        cols.set(qn('w:num'), '1')
+                        doc.add_page_break()
+                    
+            sections = doc.sections 
+            for section in sections: 
+                section.top_margin = Inches(0.5)
+                section.bottom_margin = Inches(0.5)
+                section.left_margin = Inches(.75)
+                section.right_margin = Inches(.75)
+            doc.save(f'{self.source} with facing vocab.docx')    
+        elif self.corpus_name == 'latin_text_perseus': 
+            pass 
+        
+    def create_document(self, paras: 'self.reader.paras() or another set of paragraphs for preparation' =[]): 
+        """
+        Creates a page of Latin text, corresponding to a section or paragraph, and includes vocabulary corresponding to the passage
+        """
+        
+        # Flatten list 
+        
+        # chunk list 
+        
+        # clean paragraph 
+        
+        # parse paragraph 
+        
+        # generate formatting 
+        
+        # save and output document 
