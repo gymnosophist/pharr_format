@@ -3,11 +3,21 @@
 
 <hr> </hr> 
 
-This program is inspired by Clyde Pharr's edition of Vergil ![Pharr image](https://cdn.shopify.com/s/files/1/0018/4723/0510/products/9604_VERGIL_S_AENEID_PAGE_6_1024x1024@2x.jpg?v=1583945371) 
+This program is inspired by Clyde Pharr's edition of Vergil, which presented the Latin text along with English vocabulary on the same page to facilitate reading and avoid time spent looking up the more obscure vocabulary words in a dictionary. 
+
+![Pharr image](https://cdn.shopify.com/s/files/1/0018/4723/0510/products/9604_VERGIL_S_AENEID_PAGE_6_1024x1024@2x.jpg?v=1583945371) 
 
 The idea is to format a text and add glosses for infrequently used words. Currently, the program adds glosses for any word that appears five times or fewer in the text. 
 
 Currently, only Latin texts that are available from either Perseus or the Latin Library are available. 
+
+<hr>
+
+## Acknowledgements
+
+Credit to the [CLTK](http://cltk.org/) and Luke Hollis/Archimedes Digital for the [Open Words](https://github.com/ArchimedesDigital/open_words) code that I used to make this project. 
+
+Also thanks to [Perseus](http://www.perseus.tufts.edu/hopper/) and the [Latin Library](http://thelatinlibrary.com/) for use of their texts via CLTK. 
 
 ## Requirements and operation
 
@@ -45,3 +55,5 @@ Other methods available in the PharrBuilder class include word counts for lexica
 - Options to control paragraph length and other printing options
 
 - Direct to PDF option
+
+- Adding a full vocabulary list of all words in a text to the end of the document
