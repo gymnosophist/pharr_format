@@ -17,13 +17,13 @@ Currently, only Latin texts that are available from either Perseus or the Latin 
 
 Credit to the [CLTK](http://cltk.org/) and Luke Hollis/Archimedes Digital for the [Open Words](https://github.com/ArchimedesDigital/open_words) code that I used to make this project. 
 
-Also thanks to [Perseus](http://www.perseus.tufts.edu/hopper/) and the [Latin Library](http://thelatinlibrary.com/) for use of their texts via CLTK. 
+Also thanks to [Perseus](http://www.perseus.tufts.edu/hopper/) and the [Latin Library](http://thelatinlibrary.com/) for use of their texts, including the Lewis & Short dictioanry. 
 
 ## Requirements and operation
 
 The program requires the CLTK and Open Words. 
 
-Clone the two required repos into a project folder and add steadman.py. 
+Clone the two required repos into a project folder and add steadman.py. Users will have to unzip the dictionary file in the `lexica` folder.
 
 Operation is relatively simple: 
 
