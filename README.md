@@ -21,7 +21,7 @@ Also thanks to [Perseus](http://www.perseus.tufts.edu/hopper/) and the [Latin Li
 
 ## Requirements and operation
 
-The program requires the CLTK and Open Words. 
+The program requires the CLTK and Open Words. The virtual environment that I used to create the program is included in the venv folder in this repo. To enable the environment, create a directory and clone the repo. Then run `python3 -m venv dir/pharr_format/venv`. You can use any Python environment compatible with CLTK (Python 3.7+) 
 
 Clone the two required repos into a project folder and add steadman.py. Users will have to unzip the dictionary file in the `lexica` folder.
 
