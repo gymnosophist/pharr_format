@@ -9,7 +9,7 @@ This program is inspired by Clyde Pharr's edition of Vergil, which presented the
 
 The idea is to format a text and add glosses for infrequently used words. Currently, the program adds glosses for any word that appears five times or fewer in the text. 
 
-Currently, only Latin texts that are available from either Perseus or the Latin Library are available. 
+Currently, only Latin texts that are available from either the [Tesserae](https://tesserae.caset.buffalo.edu/) corpus (via the University of Buffalo) or the Latin Library are available. 
 
 <hr>
 
