@@ -29,6 +29,8 @@ Instead of relying on the CLTK's corpus reader modules, I have instead opted to 
 
 Further, to reduce the risk of future version conflicts, I've included a `requirements.txt` file here which specifies the required packages explicitly. 
 
+Admittedly, I did not follow best practices by creating a fresh environment during development of this project. As a result, the requirements.txt file (and frankly, the code base here) is somewhat bloated. I recommend creating a new conda environment to run this program and install the rquired modules. 
+
 
 
 ### Original text, 2021
