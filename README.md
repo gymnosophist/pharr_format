@@ -71,3 +71,5 @@ Other methods available in the PharrBuilder class include word counts for lexica
 - Direct to PDF option
 
 - Adding a full vocabulary list of all words in a text to the end of the document
+
+- Fine-tuning formatting for chapter subdivisions.
