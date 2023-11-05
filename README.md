@@ -21,6 +21,18 @@ Also thanks to [Perseus](http://www.perseus.tufts.edu/hopper/) and the [Latin Li
 
 ## Requirements and operation
 
+### Updated October, 2023 
+
+Since I wrote this program originally, the underlying software has undergone some significant revisions, including a major release update from the CLTK. Unfortunately for this project, however, the updates disrupted the original code, and I made some corresponding revisions to the way this program works. 
+
+Instead of relying on the CLTK's corpus reader modules, I have instead opted to write my own parser for both Perseus and Latin Library texts; I include the data for the Perseus library in this repo, while Latin Library texts are sourced from URLs when called. I may opt to remove the Perseus data from the repo and generate texts when called (similar to what we do for the LL) if that feature is requested, as it would cut down on the required size of the repo. 
+
+Further, to reduce the risk of future version conflicts, I've included a `requirements.txt` file here which specifies the required packages explicitly. 
+
+
+
+### Original text, 2021
+
 The program requires the CLTK and Open Words. The virtual environment that I used to create the program is included in the venv folder in this repo. To enable the environment, create a directory and clone the repo. Then run `python3 -m venv dir/pharr_format/venv`. You can use any Python environment compatible with CLTK (Python 3.7+) 
 
 Clone the two required repos into a project folder and add steadman.py. Users will have to unzip the dictionary file in the `lexica` folder.
